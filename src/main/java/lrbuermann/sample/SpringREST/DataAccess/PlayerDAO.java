@@ -8,8 +8,18 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.csv.*;
 import lrbuermann.sample.SpringREST.beans.Player;
-
+/**
+ * 
+ * @author lrbuermann
+ * @version 1.0.0 7/23/2015
+ * This is a data access class to retrieve players from a 'database'
+ * For now, the database is a simple CSV file.
+ */
 public class PlayerDAO {
+	/**
+	 * This method returns all of the players in the database.
+	 * @return AllPlayers this is a list of all the players in the database
+	 */
 	public static List<Player> getAllPlayers() {
 		Reader in;
 		List<Player> players = new ArrayList<Player>();

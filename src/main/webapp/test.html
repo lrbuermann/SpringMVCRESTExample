@@ -1,5 +1,7 @@
 <!DOCTYPE html>
+<!-- A test html file using Angular to execute and display the results of our REST service -->
 <html>
+<!-- Styling for the table, alternates colors of rows -->
 <style>
 table, th , td  {
   border: 1px solid grey;
@@ -17,14 +19,17 @@ table tr:nth-child(even) {
 <body>
 
 <div ng-app="myApp" ng-controller="playerCtrl"> 
+<!-- Search Box for the table, automatically filters based on input -->
 <label>Search: <input ng-model="searchText"></label>
 <table>
+<!-- Header row for the table -->
   <tr>
   	<th>First Name</th>
   	<th>Last Name</th>
   	<th>Team</th>
   	<th>Position</th>
   </tr>
+  <!-- repeated rows of the table -->
   <tr ng-repeat="x in names|filter:searchText">
     <td>{{ x.firstName }}</td>
     <td>{{ x.lastName }}</td>
@@ -34,7 +39,7 @@ table tr:nth-child(even) {
 </table>
 
 </div>
-
+<!-- script that calls the REST endpoint for all players -->
 <script>
 var app = angular.module('myApp', []);
 app.controller('playerCtrl', function($scope, $http) {
